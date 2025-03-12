@@ -1,0 +1,21 @@
+  # Run fast code improvement/checks before running PR specific helpers.
+  - repo: https://github.com/pre-commit/pre-commit-hooks.git
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: debug-statements
+      - id: check-added-large-files
+        args: ['--maxkb=4096']
+      - id: check-xml
+      - id: check-yaml
+        args: [--allow-multiple-documents]
+        exclude: .md5$|^external/|^tools/|^tests/
+
+  - repo: "https://github.com/PyCQA/bandit"
+    rev: "1.7.4"
+    hooks:
+      - id: "bandit"
+        args:
+          - "--quiet"
+          - "--format=custom"

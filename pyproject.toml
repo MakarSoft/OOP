@@ -1,0 +1,18 @@
+[tool.black]
+line-length = 88  # Длина строки
+skip-string-normalization = true  # Пропустить нормализацию строк
+
+[tool.mypy]
+files = "src"  # Директория для проверки
+ignore_missing_imports = true  # Игнорировать отсутствующие импорты
+strict = true  # Включить строгую проверку типов
+
+[tool.flake8]
+max-line-length = 88  # Максимальная длина строки
+extend-ignore = ["E203", "W503"]  # Игнорировать определенные ошибки
+exclude = .git,__pycache__  # Исключить определенные директории
+
+[tool.pytest]
+addopts = "-v"  # Дополнительные параметры для pytest
+testpaths = ["tests"]  # Директория с тестами
+
